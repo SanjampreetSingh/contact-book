@@ -14,9 +14,11 @@ export default function Contact(params) {
     <>
       <ListContacts
         contacts={
-          navValue === 0
-            ? contacts
-            : contacts.filter(e => favourites.includes(e?.id))
+          inputSearch === ""
+            ? navValue === 0
+              ? contacts
+              : contacts.filter(e => favourites.includes(e?.id))
+            : contacts.filter(e => e.name.includes(inputSearch))
         }
         favourites={favourites}
         inputSearch={inputSearch}
