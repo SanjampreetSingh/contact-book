@@ -1,6 +1,6 @@
 import * as actionTypes from "../../actions/actions"
 
-const initialState = []
+const initialState = require("../../../contextProvider/dummyData/data.json")
 
 const contacts = (state = initialState, action) => {
   switch (action.type) {

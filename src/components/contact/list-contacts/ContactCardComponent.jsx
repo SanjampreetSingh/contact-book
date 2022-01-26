@@ -13,7 +13,7 @@ import VerticalMenuComponent from "./VerticalMenuComponent"
 
 export default function ContactCardComponent(props) {
   return (
-    <Grid Container spacing={{ xs: 2 }} columns={{ xs: 1, lg: 12 }}>
+    <Grid container spacing={{ xs: 2 }} columns={{ xs: 1, lg: 12 }}>
       <Grid item xs={4}>
         <Card>
           <CardHeader
