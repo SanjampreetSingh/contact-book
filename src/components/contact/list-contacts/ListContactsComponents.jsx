@@ -17,6 +17,8 @@ export default function ListContactsComponents(props) {
     openDeleteDialog,
     handleCloseDeleteDialog,
     handleClickOpenDeleteDialog,
+    deleteId,
+    setDeleteId,
   } = props
   return (
     <>
@@ -27,6 +29,8 @@ export default function ListContactsComponents(props) {
           "If you click on 'Agree', it will remove the contact. Do you really want to delete?"
         }
         DialogHeading={"Delete contact"}
+        deleteId={deleteId}
+        setDeleteId={setDeleteId}
       />
       {alertSuccessToggle === true ? (
         <Alert
@@ -53,9 +57,17 @@ export default function ListContactsComponents(props) {
         setAlignment={setAlignment}
       />
       {alignment === "module" ? (
-        <ContactCardComponent contacts={contacts} handleClickOpenDeleteDialog={handleClickOpenDeleteDialog}/>
+        <ContactCardComponent
+          contacts={contacts}
+          handleClickOpenDeleteDialog={handleClickOpenDeleteDialog}
+          setDeleteId={setDeleteId}
+        />
       ) : (
-        <ContactTable contacts={contacts} handleClickOpenDeleteDialog={handleClickOpenDeleteDialog}/>
+        <ContactTable
+          contacts={contacts}
+          handleClickOpenDeleteDialog={handleClickOpenDeleteDialog}
+          setDeleteId={setDeleteId}
+        />
       )}
     </>
   )

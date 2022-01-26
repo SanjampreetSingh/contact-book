@@ -5,7 +5,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert"
 import { useState } from "react"
 
 export default function VerticalMenuComponent(props) {
-  const { contactId, handleClickOpenDeleteDialog } = props
+  const { contactId, handleClickOpenDeleteDialog, setDeleteId } = props
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
   const handleClick = event => {
@@ -39,6 +39,7 @@ export default function VerticalMenuComponent(props) {
           onClick={() => {
             handleClose()
             handleClickOpenDeleteDialog()
+            setDeleteId(contactId)
           }}
         >
           Delete

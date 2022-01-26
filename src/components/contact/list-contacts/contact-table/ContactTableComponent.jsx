@@ -18,6 +18,7 @@ export default function ContactTableComponent(props) {
     page,
     contacts,
     columns,
+    setDeleteId,
     rowsPerPage,
     handleChangePage,
     handleChangeRowsPerPage,
@@ -71,7 +72,10 @@ export default function ContactTableComponent(props) {
                                   variant="contained"
                                   color="error"
                                   aria-label="delete"
-                                  onClick={handleClickOpenDeleteDialog}
+                                  onClick={() => {
+                                    handleClickOpenDeleteDialog()
+                                    setDeleteId(row?.id)
+                                  }}
                                 >
                                   <DeleteRoundedIcon />
                                 </IconButton>

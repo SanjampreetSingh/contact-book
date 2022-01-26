@@ -6,7 +6,8 @@ import DialogTitle from "@mui/material/DialogTitle"
 import Button from "@mui/material/Button"
 
 export default function DialogBoxComponent(props) {
-  const { open, handleClose, DialogBody, DialogHeading } = props
+  const { open, handleClose, DialogBody, DialogHeading, deleteId } = props
+  console.log(deleteId)
   return (
     <Dialog
       open={open}
@@ -22,7 +23,11 @@ export default function DialogBoxComponent(props) {
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>Disagree</Button>
-        <Button onClick={handleClose} autoFocus variant="contained">
+        <Button
+          onClick={() => handleClose(true, deleteId)}
+          autoFocus
+          variant="contained"
+        >
           Agree
         </Button>
       </DialogActions>

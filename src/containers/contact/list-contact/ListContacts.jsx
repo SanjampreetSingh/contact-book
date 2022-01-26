@@ -1,17 +1,24 @@
 import { useState } from "react"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import ListContactsComponents from "../../../components/contact/list-contacts/ListContactsComponents"
 
 export default function ListContacts() {
+  const dispatch = useDispatch()
   const [alignment, setAlignment] = useState("module")
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false)
-  const handleCloseDeleteDialog = () => {
-    setOpenDeleteDialog(false);
-  };
+  const [deleteId, setDeleteId] = useState(null)
+  const handleCloseDeleteDialog = (success, id) => {
+    if (success === true) {
+      dispatch({
+        type: "DELETE_CONTACT",
+        id: id,
+      })
+    }
+    setOpenDeleteDialog(false)
+  }
   const handleClickOpenDeleteDialog = () => {
-    setOpenDeleteDialog(true);
-  };
-
+    setOpenDeleteDialog(true)
+  }
 
   const contacts = useSelector(state => state.contacts || [])
   return (
@@ -22,6 +29,8 @@ export default function ListContacts() {
       openDeleteDialog={openDeleteDialog}
       handleCloseDeleteDialog={handleCloseDeleteDialog}
       handleClickOpenDeleteDialog={handleClickOpenDeleteDialog}
+      deleteId={deleteId}
+      setDeleteId={setDeleteId}
     />
   )
 }

@@ -12,7 +12,7 @@ import CallIcon from "@mui/icons-material/Call"
 import VerticalMenuComponent from "./vertical-menu/VerticalMenuComponent"
 
 export default function ContactCardComponent(props) {
-  const { contacts, handleClickOpenDeleteDialog } = props
+  const { contacts, handleClickOpenDeleteDialog, setDeleteId } = props
 
   return (
     <Grid container spacing={{ xs: 2 }} columns={{ xs: 1, lg: 12 }}>
@@ -33,6 +33,7 @@ export default function ContactCardComponent(props) {
                   <VerticalMenuComponent
                     contactId={value?.id}
                     handleClickOpenDeleteDialog={handleClickOpenDeleteDialog}
+                    setDeleteId={setDeleteId}
                   />
                 </CardActions>
               }
