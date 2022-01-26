@@ -1,7 +1,7 @@
 import TextField from "@mui/material/TextField"
 
 export default function AddContactComponent(props) {
-  const { handleCreateContactChange } = props
+  const { handleCreateChange, contactObj } = props
   return (
     <>
       <TextField
@@ -12,7 +12,9 @@ export default function AddContactComponent(props) {
         type="text"
         fullWidth
         variant="standard"
-        onChange={handleCreateContactChange}
+        onChange={handleCreateChange}
+        name="name"
+        value={contactObj?.name || ""}
       />
       <TextField
         autoFocus
@@ -22,7 +24,9 @@ export default function AddContactComponent(props) {
         type="email"
         fullWidth
         variant="standard"
-        onChange={handleCreateContactChange}
+        onChange={handleCreateChange}
+        name="email"
+        value={contactObj?.email || ""}
       />
       <TextField
         autoFocus
@@ -32,7 +36,9 @@ export default function AddContactComponent(props) {
         type="tel"
         fullWidth
         variant="standard"
-        onChange={handleCreateContactChange}
+        onChange={handleCreateChange}
+        name="phone"
+        value={contactObj?.phone || ""}
       />
     </>
   )

@@ -23,8 +23,22 @@ export default function ListContacts() {
   }
 
   // dialog create
+  const formObj = Object.freeze({
+    name: "",
+    phone: "",
+    email: "",
+  })
   const [openCreateDialog, setOpenCreateDialog] = useState(false)
-  const [contactObj, setcontactObj] = useState()
+  const [contactObj, setcontactObj] = useState(formObj)
+
+  const handleCreateChange = e => {
+    const name = e.target?.name
+    let value = e?.target?.value
+    setcontactObj(prev => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
   const handleCreateDialogDialog = (success, id) => {
     if (success === true) {
       dispatch({
@@ -54,6 +68,8 @@ export default function ListContacts() {
       openCreateDialog={openCreateDialog}
       handleClickOpenCreateDialog={handleClickOpenCreateDialog}
       handleCreateDialogDialog={handleCreateDialogDialog}
+      handleCreateChange={handleCreateChange}
+      contactObj={contactObj}
     />
   )
 }

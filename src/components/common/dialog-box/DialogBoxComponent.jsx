@@ -9,6 +9,7 @@ export default function DialogBoxComponent(props) {
   const {
     open,
     handleClose,
+    DialogFormBody,
     DialogBody,
     DialogHeading,
     buttonDisagreeTitle,
@@ -23,9 +24,13 @@ export default function DialogBoxComponent(props) {
     >
       <DialogTitle id="alert-dialog-title">{DialogHeading}</DialogTitle>
       <DialogContent>
-        <DialogContentText id="alert-dialog-description">
-          {DialogBody}
-        </DialogContentText>
+        {DialogFormBody ? (
+          DialogFormBody
+        ) : (
+          <DialogContentText id="alert-dialog-description">
+            {DialogBody}
+          </DialogContentText>
+        )}
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>

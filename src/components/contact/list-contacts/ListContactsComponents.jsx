@@ -22,6 +22,8 @@ export default function ListContactsComponents(props) {
     openCreateDialog,
     handleClickOpenCreateDialog,
     handleCreateDialogDialog,
+    handleCreateChange,
+    contactObj,
   } = props
   return (
     <>
@@ -33,16 +35,19 @@ export default function ListContactsComponents(props) {
           "If you click on 'Agree', it will remove the contact. Do you really want to delete?"
         }
         DialogHeading={"Delete contact"}
-        setDeleteId={setDeleteId}
       />
 
-      {/* Delete Dialog */}
+      {/* Create Dialog */}
       <DialogBoxComponent
         open={openCreateDialog}
         handleClose={handleCreateDialogDialog}
-        DialogBody={<AddContactComponent />}
+        DialogFormBody={
+          <AddContactComponent
+            handleCreateChange={handleCreateChange}
+            contactObj={contactObj}
+          />
+        }
         DialogHeading={"Create new contact"}
-        setDeleteId={setDeleteId}
         buttonDisagreeTitle="Cancel"
         buttonAgreeTitle="Create"
       />
