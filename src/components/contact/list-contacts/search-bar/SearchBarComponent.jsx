@@ -10,8 +10,14 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd"
 import Button from "@mui/material/Button"
 
 export default function SearchBarComponent(props) {
-  const { contacts, inputSearch, setInputSearch, alignment, handleChange } =
-    props
+  const {
+    contacts,
+    inputSearch,
+    setInputSearch,
+    alignment,
+    handleChange,
+    handleClickOpenCreateDialog,
+  } = props
 
   return (
     <Grid
@@ -27,6 +33,7 @@ export default function SearchBarComponent(props) {
           size="large"
           sx={{ mt: 1, mx: 1 }}
           startIcon={<PersonAddIcon />}
+          onClick={handleClickOpenCreateDialog}
         >
           Add new contact
         </Button>

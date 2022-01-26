@@ -5,6 +5,7 @@ import Alert from "@mui/material/Alert"
 import CloseIcon from "@mui/icons-material/Close"
 import IconButton from "@mui/material/IconButton"
 import DialogBoxComponent from "../../common/dialog-box/DialogBoxComponent"
+import AddContactComponent from "./add-contact/AddContactComponent"
 
 export default function ListContactsComponents(props) {
   const {
@@ -14,14 +15,17 @@ export default function ListContactsComponents(props) {
     alertSuccessToggle,
     setAlertSuccessToggle,
     alertMessage,
+    setDeleteId,
     openDeleteDialog,
     handleCloseDeleteDialog,
     handleClickOpenDeleteDialog,
-    deleteId,
-    setDeleteId,
+    openCreateDialog,
+    handleClickOpenCreateDialog,
+    handleCreateDialogDialog,
   } = props
   return (
     <>
+      {/* Delete Dialog */}
       <DialogBoxComponent
         open={openDeleteDialog}
         handleClose={handleCloseDeleteDialog}
@@ -29,9 +33,21 @@ export default function ListContactsComponents(props) {
           "If you click on 'Agree', it will remove the contact. Do you really want to delete?"
         }
         DialogHeading={"Delete contact"}
-        deleteId={deleteId}
         setDeleteId={setDeleteId}
       />
+
+      {/* Delete Dialog */}
+      <DialogBoxComponent
+        open={openCreateDialog}
+        handleClose={handleCreateDialogDialog}
+        DialogBody={<AddContactComponent />}
+        DialogHeading={"Create new contact"}
+        setDeleteId={setDeleteId}
+        buttonDisagreeTitle="Cancel"
+        buttonAgreeTitle="Create"
+      />
+
+      {/* Alert */}
       {alertSuccessToggle === true ? (
         <Alert
           action={
@@ -51,11 +67,16 @@ export default function ListContactsComponents(props) {
           {alertMessage}
         </Alert>
       ) : null}
+
+      {/* Search */}
       <SearchBar
         contacts={contacts}
         alignment={alignment}
         setAlignment={setAlignment}
+        handleClickOpenCreateDialog={handleClickOpenCreateDialog}
       />
+
+      {/* Card and Table UI */}
       {alignment === "module" ? (
         <ContactCardComponent
           contacts={contacts}

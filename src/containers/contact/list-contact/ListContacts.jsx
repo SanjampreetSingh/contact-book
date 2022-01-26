@@ -4,14 +4,16 @@ import ListContactsComponents from "../../../components/contact/list-contacts/Li
 
 export default function ListContacts() {
   const dispatch = useDispatch()
+  // for changing ui between table and card mode
   const [alignment, setAlignment] = useState("module")
+  // dialog delete
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false)
   const [deleteId, setDeleteId] = useState(null)
   const handleCloseDeleteDialog = (success, id) => {
     if (success === true) {
       dispatch({
         type: "DELETE_CONTACT",
-        id: id,
+        id: deleteId,
       })
     }
     setOpenDeleteDialog(false)
@@ -20,17 +22,38 @@ export default function ListContacts() {
     setOpenDeleteDialog(true)
   }
 
+  // dialog create
+  const [openCreateDialog, setOpenCreateDialog] = useState(false)
+  const [contactObj, setcontactObj] = useState()
+  const handleCreateDialogDialog = (success, id) => {
+    if (success === true) {
+      dispatch({
+        type: "ADD_CONTACT",
+        name: contactObj?.name,
+        phone: contactObj?.phone,
+        email: contactObj?.email,
+      })
+    }
+    setOpenCreateDialog(false)
+  }
+  const handleClickOpenCreateDialog = () => {
+    setOpenCreateDialog(true)
+  }
+
+  // contact
   const contacts = useSelector(state => state.contacts || [])
   return (
     <ListContactsComponents
       contacts={contacts}
       alignment={alignment}
       setAlignment={setAlignment}
+      setDeleteId={setDeleteId}
       openDeleteDialog={openDeleteDialog}
       handleCloseDeleteDialog={handleCloseDeleteDialog}
       handleClickOpenDeleteDialog={handleClickOpenDeleteDialog}
-      deleteId={deleteId}
-      setDeleteId={setDeleteId}
+      openCreateDialog={openCreateDialog}
+      handleClickOpenCreateDialog={handleClickOpenCreateDialog}
+      handleCreateDialogDialog={handleCreateDialogDialog}
     />
   )
 }
