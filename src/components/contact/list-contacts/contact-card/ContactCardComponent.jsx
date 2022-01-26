@@ -49,8 +49,8 @@ export default function ContactCardComponent(props) {
                   />
                 </CardActions>
               }
-              title={value.name.split(" ")[0] || "First Name"}
-              subheader={value.name.split(" ")[1] || "Last Name"}
+              title={value.name.split(" ")[0] || ""}
+              subheader={value.name.split(" ")[1] || ""}
             />
             <CardActions>
               <Button
