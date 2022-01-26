@@ -1,18 +1,19 @@
-import ContactCardComponent from "./contact-card/ContactCardComponent"
-import SearchBar from "../../../containers/contact/list-contact/search-bar/SearchBar"
-import ContactTable from "../../../containers/contact/list-contact/contact-table/ContactTable"
 import Alert from "@mui/material/Alert"
 import CloseIcon from "@mui/icons-material/Close"
 import IconButton from "@mui/material/IconButton"
-import DialogBoxComponent from "../../common/dialog-box/DialogBoxComponent"
+
+import ContactCardComponent from "./contact-card/ContactCardComponent"
 import AddContactComponent from "./add-contact/AddContactComponent"
+import SearchBarComponent from "./search-bar/SearchBarComponent"
+import DialogBoxComponent from "../../common/dialog-box/DialogBoxComponent"
+import ContactTable from "../../../containers/contact/list-contact/contact-table/ContactTable"
 
 export default function ListContactsComponents(props) {
   const {
     contacts,
     favourites,
     alignment,
-    setAlignment,
+    handleAlignmentChange,
     alertSuccessToggle,
     setAlertSuccessToggle,
     alertState,
@@ -25,7 +26,9 @@ export default function ListContactsComponents(props) {
     handleCreateDialogDialog,
     handleCreateChange,
     contactObj,
-    handleFavourite
+    handleFavourite,
+    inputSearch,
+    setInputSearch,
   } = props
   return (
     <>
@@ -55,10 +58,12 @@ export default function ListContactsComponents(props) {
       />
 
       {/* Search */}
-      <SearchBar
-        contacts={contacts}
+      <SearchBarComponent
+        contacts={contacts.map(obj => obj?.name)}
+        inputSearch={inputSearch}
+        setInputSearch={setInputSearch}
         alignment={alignment}
-        setAlignment={setAlignment}
+        handleChange={handleAlignmentChange}
         handleClickOpenCreateDialog={handleClickOpenCreateDialog}
       />
 
@@ -82,7 +87,6 @@ export default function ListContactsComponents(props) {
           {alertState?.message}
         </Alert>
       ) : null}
-
 
       {/* Card and Table UI */}
       {alignment === "module" ? (

@@ -8,6 +8,7 @@ export default function Contact(params) {
   const [navValue, setNavValue] = useState(0)
   const contacts = useSelector(state => state.contacts || [])
   const favourites = useSelector(state => state.favourites || [])
+  const [inputSearch, setInputSearch] = useState("")
 
   return (
     <>
@@ -18,6 +19,8 @@ export default function Contact(params) {
             : contacts.filter(e => favourites.includes(e?.id))
         }
         favourites={favourites}
+        inputSearch={inputSearch}
+        setInputSearch={setInputSearch}
       />
       <BottomNavigatorComponent value={navValue} setValue={setNavValue} />
     </>

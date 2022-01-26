@@ -5,10 +5,13 @@ import ListContactsComponents from "../../../components/contact/list-contacts/Li
 export default function ListContacts(props) {
   const dispatch = useDispatch()
   const alertState = props?.location?.state
-  const { contacts, favourites } = props
+  const { contacts, favourites, inputSearch, setInputSearch } = props
 
   // for changing ui between table and card mode
   const [alignment, setAlignment] = useState("module")
+  const handleAlignmentChange = (event, newAlignment) => {
+    setAlignment(newAlignment)
+  }
   // dialog delete
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false)
   const [deleteId, setDeleteId] = useState(null)
@@ -83,7 +86,7 @@ export default function ListContacts(props) {
       favourites={favourites}
       contacts={contacts}
       alignment={alignment}
-      setAlignment={setAlignment}
+      handleAlignmentChange={handleAlignmentChange}
       setDeleteId={setDeleteId}
       openDeleteDialog={openDeleteDialog}
       handleCloseDeleteDialog={handleCloseDeleteDialog}
@@ -97,6 +100,8 @@ export default function ListContacts(props) {
       setAlertSuccessToggle={setAlertSuccessToggle}
       alertState={alertState}
       handleFavourite={handleFavourite}
+      inputSearch={inputSearch}
+      setInputSearch={setInputSearch}
     />
   )
 }
