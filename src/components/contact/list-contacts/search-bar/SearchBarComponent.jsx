@@ -1,5 +1,6 @@
 import Autocomplete from "@mui/material/Autocomplete"
 import TextField from "@mui/material/TextField"
+import Paper from "@mui/material/Paper"
 import Grid from "@mui/material/Grid"
 import ToggleButton from "@mui/material/ToggleButton"
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup"
@@ -17,7 +18,8 @@ export default function SearchBarComponent(props) {
       container
       spacing={{ xs: 2 }}
       columns={{ xs: 1, lg: 12 }}
-      sx={{ mb: 4 }}
+      sx={{ mb: 4, p: 2 }}
+      component={Paper}
     >
       <Grid item xs={3}>
         <Button
@@ -49,7 +51,7 @@ export default function SearchBarComponent(props) {
                 ...params.InputProps,
                 type: "search",
               }}
-              variant="standard"
+              variant="outlined"
             />
           )}
         />

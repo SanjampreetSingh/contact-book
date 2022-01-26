@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 
+import Paper from "@mui/material/Paper"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
 import TableCell from "@mui/material/TableCell"
@@ -11,7 +12,6 @@ import Stack from "@mui/material/Stack"
 import EditRoundedIcon from "@mui/icons-material/EditRounded"
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded"
 import IconButton from "@mui/material/IconButton"
-
 
 export default function ContactTableComponent(props) {
   const {
@@ -25,7 +25,7 @@ export default function ContactTableComponent(props) {
 
   return (
     <>
-      <Stack spacing={2} style={{ width: "100%" }}>
+      <Stack spacing={2} style={{ width: "100%" }} component={Paper}>
         <TableContainer>
           <Table stickyHeader aria-label="sticky table">
             <TableHead>
