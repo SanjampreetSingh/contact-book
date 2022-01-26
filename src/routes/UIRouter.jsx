@@ -4,19 +4,16 @@ import {
   Route,
   Redirect,
 } from "react-router-dom"
+import ContactCardComponent from "../components/contact/list-contacts/ContactCardComponent"
 
 // Layouts
 import HomeRouter from "../layouts/home/HomeRouter"
-
-const Home = () => {
-  return <h1>Hi</h1>
-}
 
 export default function UIRouter() {
   return (
     <Router>
       <Switch>
-        <HomeRouter exact path="/" component={Home} />
+        <HomeRouter exact path="/" component={ContactCardComponent} />
         <Route>
           <Redirect to="/" />
         </Route>

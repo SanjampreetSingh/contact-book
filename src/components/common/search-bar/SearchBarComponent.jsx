@@ -5,14 +5,26 @@ import ToggleButton from "@mui/material/ToggleButton"
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup"
 import ViewListIcon from "@mui/icons-material/ViewList"
 import ViewModuleIcon from "@mui/icons-material/ViewModule"
+import PersonAddIcon from "@mui/icons-material/PersonAdd"
+import Button from "@mui/material/Button"
 
 export default function SearchBarComponent(props) {
   const { contacts, inputSearch, setInputSearch, alignment, handleChange } =
     props
 
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={8}>
+    <Grid container spacing={{ xs: 2}} columns={{xs:1, lg:12}}>
+      <Grid item xs={3}>
+        <Button
+          variant="contained"
+          size="large"
+          sx={{ mt: 1, mx:1}}
+          startIcon={<PersonAddIcon />}
+        >
+          Add new contact
+        </Button>
+      </Grid>
+      <Grid item xs={7}>
         <Autocomplete
           id="free-solo-demo"
           freeSolo
@@ -27,7 +39,7 @@ export default function SearchBarComponent(props) {
           renderInput={params => (
             <TextField
               {...params}
-              label={"Search Contacts"}
+              label={"Search contacts"}
               InputProps={{
                 ...params.InputProps,
                 type: "search",
@@ -37,7 +49,7 @@ export default function SearchBarComponent(props) {
           )}
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={2}>
         <ToggleButtonGroup
           color="primary"
           value={alignment}
