@@ -6,7 +6,11 @@ export default function ListContacts() {
   const [alignment, setAlignment] = useState("module")
 
   const contacts = useSelector(state => state.contacts || [])
-  return <ListContactsComponents contacts={contacts} 
-  alignment={alignment}
-  setAlignment={setAlignment} />
+  return (
+    <ListContactsComponents
+      contacts={contacts}
+      alignment={alignment}
+      setAlignment={setAlignment}
+    />
+  )
 }
