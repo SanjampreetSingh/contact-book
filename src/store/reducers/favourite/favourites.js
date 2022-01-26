@@ -1,6 +1,6 @@
 import * as actionTypes from "../../actions/actions"
 
-const initialState = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+const initialState = ["1", "2", "3", "4"]
 
 const favourites = (state = initialState, action) => {
   switch (action.type) {

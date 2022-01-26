@@ -17,6 +17,7 @@ export default function Contact(params) {
             ? contacts
             : contacts.filter(e => favourites.includes(e?.id))
         }
+        favourites={favourites}
       />
       <BottomNavigatorComponent value={navValue} setValue={setNavValue} />
     </>

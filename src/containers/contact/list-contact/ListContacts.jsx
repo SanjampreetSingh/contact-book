@@ -5,7 +5,7 @@ import ListContactsComponents from "../../../components/contact/list-contacts/Li
 export default function ListContacts(props) {
   const dispatch = useDispatch()
   const alertState = props?.location?.state
-  const { contacts } = props
+  const { contacts, favourites } = props
 
   // for changing ui between table and card mode
   const [alignment, setAlignment] = useState("module")
@@ -47,6 +47,7 @@ export default function ListContacts(props) {
       [name]: value,
     }))
   }
+
   const handleCreateDialogDialog = (success, id) => {
     if (success === true) {
       dispatch({
@@ -58,6 +59,7 @@ export default function ListContacts(props) {
     }
     setOpenCreateDialog(false)
   }
+
   const handleClickOpenCreateDialog = () => {
     setOpenCreateDialog(true)
   }
@@ -65,6 +67,7 @@ export default function ListContacts(props) {
   // contact
   return (
     <ListContactsComponents
+    favourites={favourites}
       contacts={contacts}
       alignment={alignment}
       setAlignment={setAlignment}

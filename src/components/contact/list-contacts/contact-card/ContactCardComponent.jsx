@@ -12,7 +12,8 @@ import CallIcon from "@mui/icons-material/Call"
 import VerticalMenuComponent from "./vertical-menu/VerticalMenuComponent"
 
 export default function ContactCardComponent(props) {
-  const { contacts, handleClickOpenDeleteDialog, setDeleteId } = props
+  const { contacts, favourites, handleClickOpenDeleteDialog, setDeleteId } =
+    props
 
   return (
     <Grid container spacing={{ xs: 2 }} columns={{ xs: 1, lg: 12 }}>
@@ -27,7 +28,10 @@ export default function ContactCardComponent(props) {
               }
               action={
                 <CardActions disableSpacing>
-                  <IconButton aria-label="add to favorites">
+                  <IconButton
+                    aria-label="add to favorites"
+                    color={favourites.includes(value?.id) ? "error" : "default"}
+                  >
                     <FavoriteIcon />
                   </IconButton>
                   <VerticalMenuComponent

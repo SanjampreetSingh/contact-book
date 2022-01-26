@@ -10,6 +10,7 @@ import AddContactComponent from "./add-contact/AddContactComponent"
 export default function ListContactsComponents(props) {
   const {
     contacts,
+    favourites,
     alignment,
     setAlignment,
     alertSuccessToggle,
@@ -86,6 +87,7 @@ export default function ListContactsComponents(props) {
       {alignment === "module" ? (
         <ContactCardComponent
           contacts={contacts}
+          favourites={favourites}
           handleClickOpenDeleteDialog={handleClickOpenDeleteDialog}
           setDeleteId={setDeleteId}
         />
