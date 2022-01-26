@@ -13,12 +13,17 @@ export default function SearchBarComponent(props) {
     props
 
   return (
-    <Grid container spacing={{ xs: 2}} columns={{xs:1, lg:12}}>
+    <Grid
+      container
+      spacing={{ xs: 2 }}
+      columns={{ xs: 1, lg: 12 }}
+      sx={{ mb: 4 }}
+    >
       <Grid item xs={3}>
         <Button
           variant="contained"
           size="large"
-          sx={{ mt: 1, mx:1}}
+          sx={{ mt: 1, mx: 1 }}
           startIcon={<PersonAddIcon />}
         >
           Add new contact

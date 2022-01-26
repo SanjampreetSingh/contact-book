@@ -9,7 +9,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite"
 import Button from "@mui/material/Button"
 import SendIcon from "@mui/icons-material/Send"
 import CallIcon from "@mui/icons-material/Call"
-import VerticalMenuComponent from "./VerticalMenuComponent"
+import VerticalMenuComponent from "./vertical-menu/VerticalMenuComponent"
 
 export default function ContactCardComponent(props) {
   return (
