@@ -2,7 +2,7 @@ import { useState } from "react"
 import ContactTableComponent from "../../../../components/contact/list-contacts/contact-table/ContactTableComponent"
 
 export default function ContactTable(props) {
-  const { contacts } = props
+  const { contacts, handleClickOpenDeleteDialog } = props
   const [page, setPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(5)
 
@@ -52,6 +52,7 @@ export default function ContactTable(props) {
       rowsPerPage={rowsPerPage}
       handleChangePage={handleChangePage}
       handleChangeRowsPerPage={handleChangeRowsPerPage}
+      handleClickOpenDeleteDialog={handleClickOpenDeleteDialog}
     />
   )
 }
