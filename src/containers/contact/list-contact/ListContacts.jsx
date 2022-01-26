@@ -64,10 +64,23 @@ export default function ListContacts(props) {
     setOpenCreateDialog(true)
   }
 
-  // contact
+  const handleFavourite = (success, id) => {
+    if (success === true) {
+      dispatch({
+        type: "ADD_FAV",
+        id: id,
+      })
+    } else {
+      dispatch({
+        type: "DELETE_FAV",
+        id: id,
+      })
+    }
+  }
+
   return (
     <ListContactsComponents
-    favourites={favourites}
+      favourites={favourites}
       contacts={contacts}
       alignment={alignment}
       setAlignment={setAlignment}
@@ -83,6 +96,7 @@ export default function ListContacts(props) {
       alertSuccessToggle={alertSuccessToggle}
       setAlertSuccessToggle={setAlertSuccessToggle}
       alertState={alertState}
+      handleFavourite={handleFavourite}
     />
   )
 }

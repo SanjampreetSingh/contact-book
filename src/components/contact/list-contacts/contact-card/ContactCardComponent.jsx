@@ -12,8 +12,13 @@ import CallIcon from "@mui/icons-material/Call"
 import VerticalMenuComponent from "./vertical-menu/VerticalMenuComponent"
 
 export default function ContactCardComponent(props) {
-  const { contacts, favourites, handleClickOpenDeleteDialog, setDeleteId } =
-    props
+  const {
+    contacts,
+    favourites,
+    handleClickOpenDeleteDialog,
+    setDeleteId,
+    handleFavourite,
+  } = props
 
   return (
     <Grid container spacing={{ xs: 2 }} columns={{ xs: 1, lg: 12 }}>
@@ -31,6 +36,9 @@ export default function ContactCardComponent(props) {
                   <IconButton
                     aria-label="add to favorites"
                     color={favourites.includes(value?.id) ? "error" : "default"}
+                    onClick={() => {
+                      handleFavourite(!favourites.includes(value?.id), value?.id)
+                    }}
                   >
                     <FavoriteIcon />
                   </IconButton>

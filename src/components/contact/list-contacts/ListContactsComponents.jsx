@@ -25,6 +25,7 @@ export default function ListContactsComponents(props) {
     handleCreateDialogDialog,
     handleCreateChange,
     contactObj,
+    handleFavourite
   } = props
   return (
     <>
@@ -90,6 +91,7 @@ export default function ListContactsComponents(props) {
           favourites={favourites}
           handleClickOpenDeleteDialog={handleClickOpenDeleteDialog}
           setDeleteId={setDeleteId}
+          handleFavourite={handleFavourite}
         />
       ) : (
         <ContactTable
