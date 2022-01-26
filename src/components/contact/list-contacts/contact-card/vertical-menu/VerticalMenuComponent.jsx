@@ -4,7 +4,8 @@ import IconButton from "@mui/material/IconButton"
 import MoreVertIcon from "@mui/icons-material/MoreVert"
 import { useState } from "react"
 
-export default function VerticalMenuComponent(params) {
+export default function VerticalMenuComponent(props) {
+  const { contactId } = props
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
   const handleClick = event => {

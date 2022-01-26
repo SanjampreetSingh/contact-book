@@ -12,37 +12,49 @@ import CallIcon from "@mui/icons-material/Call"
 import VerticalMenuComponent from "./vertical-menu/VerticalMenuComponent"
 
 export default function ContactCardComponent(props) {
+  const { contacts } = props
+
   return (
     <Grid container spacing={{ xs: 2 }} columns={{ xs: 1, lg: 12 }}>
-      <Grid item xs={4}>
-        <Card>
-          <CardHeader
-            avatar={
-              <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                R
-              </Avatar>
-            }
-            action={
-              <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                  <FavoriteIcon />
-                </IconButton>
-                <VerticalMenuComponent />
-              </CardActions>
-            }
-            title="First Name"
-            subheader="Last Name"
-          />
-          <CardActions>
-            <Button size="small" startIcon={<SendIcon />}>
-              Email
-            </Button>
-            <Button size="small" startIcon={<CallIcon />}>
-              Call
-            </Button>
-          </CardActions>
-        </Card>
-      </Grid>
+      {contacts.map((value, index) => (
+        <Grid item xs={4} key={index?.toString()}>
+          <Card>
+            <CardHeader
+              avatar={
+                <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                  {value?.name[0] || "F"}
+                </Avatar>
+              }
+              action={
+                <CardActions disableSpacing>
+                  <IconButton aria-label="add to favorites">
+                    <FavoriteIcon />
+                  </IconButton>
+                  <VerticalMenuComponent contactId={value?.id} />
+                </CardActions>
+              }
+              title={value.name.split(" ")[0] || "First Name"}
+              subheader={value.name.split(" ")[1] || "Last Name"}
+            />
+            <CardActions>
+              <Button
+                size="small"
+                startIcon={<SendIcon />}
+                onClick={() => window.open("mailto:" + value?.email, "_blank")}
+              >
+                Email
+              </Button>
+              <Button
+                size="small"
+                startIcon={<CallIcon />}
+                onClick={() => window.open("tel:" + value?.phone, "_blank")}
+              >
+                Call
+              </Button>
+            </CardActions>
+          </Card>
+        </Grid>
+      ))}
     </Grid>
   )
 }

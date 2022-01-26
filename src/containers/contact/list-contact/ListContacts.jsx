@@ -4,5 +4,5 @@ import ListContactsComponents from "../../../components/contact/list-contacts/Li
 
 export default function ListContacts() {
   const contacts = useSelector(state => state.contacts || [])
-  return <ListContactsComponents />
+  return <ListContactsComponents contacts={contacts} />
 }
