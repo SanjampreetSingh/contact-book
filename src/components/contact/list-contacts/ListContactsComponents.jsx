@@ -14,7 +14,7 @@ export default function ListContactsComponents(props) {
     setAlignment,
     alertSuccessToggle,
     setAlertSuccessToggle,
-    alertMessage,
+    alertState,
     setDeleteId,
     openDeleteDialog,
     handleCloseDeleteDialog,
@@ -52,6 +52,14 @@ export default function ListContactsComponents(props) {
         buttonAgreeTitle="Create"
       />
 
+      {/* Search */}
+      <SearchBar
+        contacts={contacts}
+        alignment={alignment}
+        setAlignment={setAlignment}
+        handleClickOpenCreateDialog={handleClickOpenCreateDialog}
+      />
+
       {/* Alert */}
       {alertSuccessToggle === true ? (
         <Alert
@@ -69,17 +77,10 @@ export default function ListContactsComponents(props) {
           }
           sx={{ mb: 2 }}
         >
-          {alertMessage}
+          {alertState?.message}
         </Alert>
       ) : null}
 
-      {/* Search */}
-      <SearchBar
-        contacts={contacts}
-        alignment={alignment}
-        setAlignment={setAlignment}
-        handleClickOpenCreateDialog={handleClickOpenCreateDialog}
-      />
 
       {/* Card and Table UI */}
       {alignment === "module" ? (

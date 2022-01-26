@@ -2,8 +2,10 @@ import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import ListContactsComponents from "../../../components/contact/list-contacts/ListContactsComponents"
 
-export default function ListContacts() {
+export default function ListContacts(props) {
   const dispatch = useDispatch()
+  const alertState = props?.location?.state
+
   // for changing ui between table and card mode
   const [alignment, setAlignment] = useState("module")
   // dialog delete
@@ -21,6 +23,11 @@ export default function ListContacts() {
   const handleClickOpenDeleteDialog = () => {
     setOpenDeleteDialog(true)
   }
+
+  // alert
+  const [alertSuccessToggle, setAlertSuccessToggle] = useState(
+    props?.location?.state?.success || false
+  )
 
   // dialog create
   const formObj = Object.freeze({
@@ -70,6 +77,9 @@ export default function ListContacts() {
       handleCreateDialogDialog={handleCreateDialogDialog}
       handleCreateChange={handleCreateChange}
       contactObj={contactObj}
+      alertSuccessToggle={alertSuccessToggle}
+      setAlertSuccessToggle={setAlertSuccessToggle}
+      alertState={alertState}
     />
   )
 }

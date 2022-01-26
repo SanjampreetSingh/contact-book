@@ -34,7 +34,7 @@ export default function EditContact(props) {
       phone: contactObj?.phone,
       email: contactObj?.email,
     })
-    history.push("/", { success: true })
+    history.push("/", { success: true, message: "Successfully updated!" })
   }
 
   useEffect(() => {
