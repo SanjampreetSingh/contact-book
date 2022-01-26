@@ -7,7 +7,7 @@ import {
 
 // components
 import EditContact from "../containers/contact/edit-contact/EditContact"
-import ListContacts from "../containers/contact/list-contact/ListContacts"
+import Contact from "../containers/contact/Contact"
 // Layouts
 import EditRouter from "../layouts/edit/EditRouter"
 import HomeRouter from "../layouts/home/HomeRouter"
@@ -16,7 +16,7 @@ export default function UIRouter() {
   return (
     <Router>
       <Switch>
-        <HomeRouter exact path="/" component={ListContacts} />
+        <HomeRouter exact path="/" component={Contact} />
         <EditRouter exact path="/edit/:contactId" component={EditContact} />
         <Route>
           <Redirect to="/" />

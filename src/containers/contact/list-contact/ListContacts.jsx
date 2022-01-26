@@ -1,10 +1,11 @@
 import { useState } from "react"
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 import ListContactsComponents from "../../../components/contact/list-contacts/ListContactsComponents"
 
 export default function ListContacts(props) {
   const dispatch = useDispatch()
   const alertState = props?.location?.state
+  const { contacts } = props
 
   // for changing ui between table and card mode
   const [alignment, setAlignment] = useState("module")
@@ -62,7 +63,6 @@ export default function ListContacts(props) {
   }
 
   // contact
-  const contacts = useSelector(state => state.contacts || [])
   return (
     <ListContactsComponents
       contacts={contacts}
