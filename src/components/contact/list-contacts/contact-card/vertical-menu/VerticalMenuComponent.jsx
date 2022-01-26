@@ -1,8 +1,9 @@
+import { useState } from "react"
+import { Link } from "react-router-dom"
 import Menu from "@mui/material/Menu"
 import MenuItem from "@mui/material/MenuItem"
 import IconButton from "@mui/material/IconButton"
 import MoreVertIcon from "@mui/icons-material/MoreVert"
-import { useState } from "react"
 
 export default function VerticalMenuComponent(props) {
   const { contactId, handleClickOpenDeleteDialog, setDeleteId } = props
@@ -29,7 +30,8 @@ export default function VerticalMenuComponent(props) {
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
-        onClose={handleClose}
+        component={Link}
+        to={"/edit/" + contactId}
         MenuListProps={{
           "aria-labelledby": "basic-button",
         }}

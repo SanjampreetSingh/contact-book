@@ -1,5 +1,5 @@
 import ContactCardComponent from "./contact-card/ContactCardComponent"
-import SearchBar from "../../../containers/contact/search-bar/SearchBar"
+import SearchBar from "../../../containers/contact/list-contact/search-bar/SearchBar"
 import ContactTable from "../../../containers/contact/list-contact/contact-table/ContactTable"
 import Alert from "@mui/material/Alert"
 import CloseIcon from "@mui/icons-material/Close"

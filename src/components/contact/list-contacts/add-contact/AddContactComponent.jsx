@@ -5,37 +5,38 @@ export default function AddContactComponent(props) {
   return (
     <>
       <TextField
+        required
         autoFocus
         margin="dense"
         id="name"
         label="Name"
         type="text"
         fullWidth
-        variant="standard"
+        variant="outlined"
         onChange={handleCreateChange}
         name="name"
         value={contactObj?.name || ""}
       />
       <TextField
-        autoFocus
+        required
         margin="dense"
         id="email"
         label="Email Address"
         type="email"
         fullWidth
-        variant="standard"
+        variant="outlined"
         onChange={handleCreateChange}
         name="email"
         value={contactObj?.email || ""}
       />
       <TextField
-        autoFocus
+        required
         margin="dense"
         id="phone"
         label="Phone"
         type="tel"
         fullWidth
-        variant="standard"
+        variant="outlined"
         onChange={handleCreateChange}
         name="phone"
         value={contactObj?.phone || ""}

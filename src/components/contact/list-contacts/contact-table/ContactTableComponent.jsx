@@ -63,7 +63,7 @@ export default function ContactTableComponent(props) {
                                   color="secondary"
                                   aria-label="edit"
                                   component={Link}
-                                  to={"/contact/edit/" + row?.id?.toString()}
+                                  to={"/edit/" + row?.id?.toString()}
                                 >
                                   <EditRoundedIcon />
                                 </IconButton>

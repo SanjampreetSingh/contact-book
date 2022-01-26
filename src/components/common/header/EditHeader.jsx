@@ -14,7 +14,7 @@ export default function EditHeader() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Edit Contact
           </Typography>
-          <Button color="inherit" component={Link} to="/">
+          <Button color="inherit" component={Link} to="/" variant="outlined">
             Back
           </Button>
         </Toolbar>

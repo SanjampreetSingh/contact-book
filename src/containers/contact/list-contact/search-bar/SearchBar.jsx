@@ -1,5 +1,5 @@
 import { useState } from "react"
-import SearchBarComponent from "../../../components/contact/list-contacts/search-bar/SearchBarComponent"
+import SearchBarComponent from "../../../../components/contact/list-contacts/search-bar/SearchBarComponent"
 
 export default function SearchBar(props) {
   const { contacts, alignment, setAlignment, handleClickOpenCreateDialog } =

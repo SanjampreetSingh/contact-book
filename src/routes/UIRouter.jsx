@@ -6,6 +6,7 @@ import {
 } from "react-router-dom"
 
 // components
+import EditContact from "../containers/contact/edit-contact/EditContact"
 import ListContacts from "../containers/contact/list-contact/ListContacts"
 // Layouts
 import EditRouter from "../layouts/edit/EditRouter"
@@ -16,7 +17,7 @@ export default function UIRouter() {
     <Router>
       <Switch>
         <HomeRouter exact path="/" component={ListContacts} />
-        <EditRouter exact path="/edit/:contactId" component={ListContacts} />
+        <EditRouter exact path="/edit/:contactId" component={EditContact} />
         <Route>
           <Redirect to="/" />
         </Route>
