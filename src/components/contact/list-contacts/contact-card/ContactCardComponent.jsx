@@ -12,7 +12,7 @@ import CallIcon from "@mui/icons-material/Call"
 import VerticalMenuComponent from "./vertical-menu/VerticalMenuComponent"
 
 export default function ContactCardComponent(props) {
-  const { contacts } = props
+  const { contacts, handleClickOpenDeleteDialog } = props
 
   return (
     <Grid container spacing={{ xs: 2 }} columns={{ xs: 1, lg: 12 }}>
@@ -30,7 +30,10 @@ export default function ContactCardComponent(props) {
                   <IconButton aria-label="add to favorites">
                     <FavoriteIcon />
                   </IconButton>
-                  <VerticalMenuComponent contactId={value?.id} />
+                  <VerticalMenuComponent
+                    contactId={value?.id}
+                    handleClickOpenDeleteDialog={handleClickOpenDeleteDialog}
+                  />
                 </CardActions>
               }
               title={value.name.split(" ")[0] || "First Name"}

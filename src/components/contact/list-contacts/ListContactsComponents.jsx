@@ -4,6 +4,7 @@ import ContactTable from "../../../containers/contact/list-contact/contact-table
 import Alert from "@mui/material/Alert"
 import CloseIcon from "@mui/icons-material/Close"
 import IconButton from "@mui/material/IconButton"
+import DialogBoxComponent from "../../common/dialog-box/DialogBoxComponent"
 
 export default function ListContactsComponents(props) {
   const {
@@ -13,9 +14,20 @@ export default function ListContactsComponents(props) {
     alertSuccessToggle,
     setAlertSuccessToggle,
     alertMessage,
+    openDeleteDialog,
+    handleCloseDeleteDialog,
+    handleClickOpenDeleteDialog,
   } = props
   return (
     <>
+      <DialogBoxComponent
+        open={openDeleteDialog}
+        handleClose={handleCloseDeleteDialog}
+        DialogBody={
+          "If you click on 'Agree', it will remove the contact. Do you really want to delete?"
+        }
+        DialogHeading={"Delete contact"}
+      />
       {alertSuccessToggle === true ? (
         <Alert
           action={
@@ -41,9 +53,9 @@ export default function ListContactsComponents(props) {
         setAlignment={setAlignment}
       />
       {alignment === "module" ? (
-        <ContactCardComponent contacts={contacts} />
+        <ContactCardComponent contacts={contacts} handleClickOpenDeleteDialog={handleClickOpenDeleteDialog}/>
       ) : (
-        <ContactTable contacts={contacts} />
+        <ContactTable contacts={contacts} handleClickOpenDeleteDialog={handleClickOpenDeleteDialog}/>
       )}
     </>
   )
