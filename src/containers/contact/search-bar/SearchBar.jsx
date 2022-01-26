@@ -1,9 +1,8 @@
 import { useState } from "react"
 import SearchBarComponent from "../../../components/contact/list-contacts/search-bar/SearchBarComponent"
 
-export default function SearchBar() {
-  const [contacts, setContacts] = useState([])
-  const [alignment, setAlignment] = useState("list")
+export default function SearchBar(props) {
+  const { contacts, alignment, setAlignment } = props
   const [inputSearch, setInputSearch] = useState("")
 
   const handleChange = (event, newAlignment) => {
@@ -11,7 +10,7 @@ export default function SearchBar() {
   }
   return (
     <SearchBarComponent
-      contacts={contacts}
+      contacts={contacts.map(obj => obj?.name)}
       inputSearch={inputSearch}
       setInputSearch={setInputSearch}
       alignment={alignment}

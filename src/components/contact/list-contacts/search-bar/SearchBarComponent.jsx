@@ -61,11 +61,11 @@ export default function SearchBarComponent(props) {
           exclusive
           onChange={handleChange}
         >
-          <ToggleButton value="list" aria-label="list">
-            <ViewListIcon />
-          </ToggleButton>
           <ToggleButton value="module" aria-label="module">
             <ViewModuleIcon />
+          </ToggleButton>
+          <ToggleButton value="list" aria-label="list">
+            <ViewListIcon />
           </ToggleButton>
         </ToggleButtonGroup>
       </Grid>

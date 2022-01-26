@@ -1,4 +1,5 @@
 import Box from "@mui/material/Box"
+import Paper from "@mui/material/Paper"
 import BottomNavigation from "@mui/material/BottomNavigation"
 import BottomNavigationAction from "@mui/material/BottomNavigationAction"
 import FavoriteIcon from "@mui/icons-material/Favorite"
@@ -8,17 +9,22 @@ export default function BottomNavigatorComponent(props) {
   const { value, setValue } = props
 
   return (
-    <Box>
-      <BottomNavigation
-        showLabels
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue)
-        }}
-      >
-        <BottomNavigationAction label="All" icon={<PeopleAltIcon />} />
-        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-      </BottomNavigation>
-    </Box>
+    <Paper
+      sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
+      elevation={3}
+    >
+      <Box>
+        <BottomNavigation
+          showLabels
+          value={value}
+          onChange={(event, newValue) => {
+            setValue(newValue)
+          }}
+        >
+          <BottomNavigationAction label="All" icon={<PeopleAltIcon />} />
+          <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
+        </BottomNavigation>
+      </Box>
+    </Paper>
   )
 }
