@@ -2,9 +2,9 @@
 
 1. List of Contacts as Cards.
 2. When "Add Contact" button is clicked, new contact card should appear with following fields:
-        Name
-        Phone
-        Email
+   - Name
+   - Phone
+   - Email
 3. Edit Button.
 4. Delete Button.
 5. Favourite Button.
@@ -15,7 +15,12 @@
 9. Save state in local storage.
 
 # Note:
+
 - You can use any third party libraries.
 - You have to use Material ui.
 - Fields must be property validated.
 - For state management you have to use Redux.
+
+# Screenshot
+
+![Add Contact](https://github.com/SanjampreetSingh/contact-book/blob/master/screenshot.jpeg)
